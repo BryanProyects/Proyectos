@@ -1,3 +1,4 @@
 |1|Operaciones
 |2|Contabilidad
-
+|252|DJT
+|252|Gerencia

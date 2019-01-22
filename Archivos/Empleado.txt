@@ -1,0 +1,4 @@
+|1|Bryan|Davd|Reyes|Elegido|809-555-9999|M|1|21-12-2018|1|True|12000
+|2|David|David||Vazques|LosPadros|908-688-9888|M|1|21-12-2018|2|False|15000
+|255|Jan|Martinez|Polanco|Cualquiera|809-233-9888|M|252|21-12-2018|1|True|33000
+|258|Marisela|Polanco|Rodrigues|Cualquiera|809-233-5689|F|252|21-12-2018|2|True|100000

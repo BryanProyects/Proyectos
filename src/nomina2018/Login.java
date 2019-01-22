@@ -135,7 +135,7 @@ MenuPrincipal menu = new MenuPrincipal();
             BufferedReader br;
             int aux = 0;
             try {
-                archivo = new File("C:\\Users\\Bryan Reyes\\Desktop\\Bryan R\\UTESA\\ProyectoUtesaLab\\Nomina2018\\Archivos\\Usuario.txt");
+                archivo = new File("..\\Nomina2018\\Archivos\\Usuario.txt");
                 if (archivo.exists() == true) {
                     fr = new FileReader(archivo);
                     br = new BufferedReader(fr);

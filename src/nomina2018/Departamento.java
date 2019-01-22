@@ -1,8 +1,6 @@
 package nomina2018;
 
-/**
- * * @author Bryan Reyes
- */
+/*** @author Bryan Reyes */
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
@@ -16,6 +14,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
 public class Departamento extends javax.swing.JFrame {
+
+    public String idDepartamento;
+    public String dDepartamento;
 
     public void escribir(FileWriter fDepartamento) throws IOException {
         fDepartamento.write("|" + txt_IdDepto.getText() + "|" + txt_DescrDepto.getText() + "\r\n");
@@ -37,6 +38,8 @@ public class Departamento extends javax.swing.JFrame {
         txt_DescrDepto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Departamento");
@@ -75,11 +78,19 @@ public class Departamento extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Volver");
+        jButton2.setText("Modificar");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Volver");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -88,42 +99,54 @@ public class Departamento extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_Id1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_Id)
-                        .addGap(39, 39, 39)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_IdDepto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_DescrDepto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lbl_Id1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_Id)
+                                .addGap(39, 39, 39)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_IdDepto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel1))
+                            .addComponent(txt_DescrDepto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(19, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_IdDepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_Id))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_IdDepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Id)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_Id1)
                     .addComponent(txt_DescrDepto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,7 +158,7 @@ public class Departamento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No puede dejar campos  vacios", "ERROR", getDefaultCloseOperation());
         } else {
             try {
-                FileWriter fdepartament = new FileWriter("C:\\Users\\Bryan Reyes\\Desktop\\Bryan R\\UTESA\\ProyectoUtesaLab\\Nomina2018\\Archivos\\Departamento.txt", true);
+                FileWriter fdepartament = new FileWriter("..\\Nomina2018\\Archivos\\Departamento.txt", true);
                 escribir(fdepartament);
                 fdepartament.flush();
                 JOptionPane.showMessageDialog(null, "Se han guardado los datos.");
@@ -148,8 +171,35 @@ public class Departamento extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public String modificar(String ruta, String datos, String id)
+{
+    try {
+        FileReader leer= new FileReader(ruta);
+        BufferedReader BFL= new BufferedReader(leer);
+        String linea=BFL.readLine();
+        FileWriter escribir= new FileWriter(ruta);
+            while(linea!=null){
+                //
+                if (id.equals(linea.split("|")[1])){
+                       // (datos.split("|")[0].equals(linea.split("|")[0]))
+                escribir.write(datos +"\r\n");
+                 jLabel1.setText("MODIFICADO!");
+                
+                } else { escribir.write(linea+"\r\n");
+                }
+                    linea= BFL.readLine();
+             }
+            escribir.close();
+    } catch (IOException e) {
+        
+    }
+    
+return "NO";
+}
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
+        String datos="|"+txt_IdDepto.getText()+"|"+txt_DescrDepto.getText();
+        this.modificar("..\\Nomina2018\\Archivos\\Departamento.txt",datos , txt_IdDepto.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txt_IdDeptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_IdDeptoActionPerformed
@@ -157,7 +207,7 @@ public class Departamento extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_IdDeptoActionPerformed
 
     private void txt_IdDeptoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_IdDeptoKeyTyped
-
+char a = evt.getKeyChar (); if (!Character.isDigit (a)) {evt.consume (); }
 
     }//GEN-LAST:event_txt_IdDeptoKeyTyped
 
@@ -171,7 +221,7 @@ public class Departamento extends javax.swing.JFrame {
         BufferedReader br;
         int aux = 0;
         try {
-            archivo = new File("C:\\Users\\Bryan Reyes\\Desktop\\Bryan R\\UTESA\\ProyectoUtesaLab\\Nomina2018\\Archivos\\Departamento.txt");
+            archivo = new File("..\\Nomina2018\\Archivos\\Departamento.txt");
             if (archivo.exists() == true) {
                 fr = new FileReader(archivo);
                 br = new BufferedReader(fr);
@@ -188,11 +238,13 @@ public class Departamento extends javax.swing.JFrame {
                         if (txt_IdDepto.getText().equals(Idepartament)) {
 
                             txt_DescrDepto.setText(descri);
-                            JOptionPane.showMessageDialog(null, "MODIFICANDO.");
+                            jLabel1.setText("MODIFICANDO!");
+                            break;
 
                         } else {
-                            JOptionPane.showMessageDialog(null, "CREANDO.");
+                            jLabel1.setText("CREANDO!");
                             txt_DescrDepto.setText("");
+
                         }
 
                     } catch (Exception e) {
@@ -208,6 +260,10 @@ public class Departamento extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_IdDeptoKeyReleased
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -220,6 +276,8 @@ public class Departamento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_Id;
     private javax.swing.JLabel lbl_Id1;
     private javax.swing.JTextField txt_DescrDepto;
